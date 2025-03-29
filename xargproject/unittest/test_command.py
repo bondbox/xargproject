@@ -22,9 +22,9 @@ class TestCommand(unittest.TestCase):
     def tearDown(self):
         pass
 
-    @mock.patch.object(command, "Project", mock.MagicMock())
+    @mock.patch.object(command.Project, "create", mock.MagicMock(side_effect=[123]))  # noqa:E501
     def test_main(self):
-        self.assertEqual(command.main(["init", "unittest"]), 0)
+        self.assertEqual(command.main(["init", "unittest"]), 123)
 
 
 if __name__ == "__main__":
