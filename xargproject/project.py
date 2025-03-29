@@ -13,7 +13,7 @@ from xargproject.attribute import __urlhome__
 
 class Project:
 
-    def __init__(self, name: str, license: str, allow_update: bool = False):  # pylint: disable=redefined-builtin # noqa:E501
+    def __init__(self, name: str, license: str, allow_update: bool = False):  # noqa:E501 pylint: disable=redefined-builtin
         # check illegal characters in project name
         for char in [" "]:
             if char in name:
@@ -255,7 +255,7 @@ setup(
 ''')  # noqa:E501
 
     @classmethod
-    def create(cls, name: str, license: str, allow_update: bool = False) -> int:  # noqa:E501
+    def create(cls, name: str, license: str, allow_update: bool = False) -> int:  # noqa:E501 pylint: disable=redefined-builtin
         instance = cls(name=name, license=license, allow_update=allow_update)
         instance.init_requirements()
         instance.init_coveragerc()
