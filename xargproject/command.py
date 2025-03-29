@@ -8,6 +8,7 @@ from xkits_command.actuator import CommandArgument
 from xkits_command.actuator import CommandExecutor
 from xkits_command.parser import ArgParser
 
+from xargproject.attribute import __description__
 from xargproject.attribute import __project__
 from xargproject.attribute import __urlhome__
 from xargproject.attribute import __version__
@@ -30,7 +31,7 @@ def run_cmd_init(cmds: Command) -> int:
                           allow_update=cmds.args.update)
 
 
-@CommandArgument(__project__, description="Create a command-line project.")
+@CommandArgument(__project__, description=__description__)
 def add_cmd(_arg: ArgParser):  # pylint: disable=unused-argument
     pass
 
