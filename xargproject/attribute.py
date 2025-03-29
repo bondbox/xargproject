@@ -1,7 +1,7 @@
 # coding:utf-8
 
 __project__ = "xargproject"
-__version__ = "0.1.alpha.1"
+__version__ = "0.1"
 __description__ = "Create a command-line project"
 __urlhome__ = "https://github.com/bondbox/xargproject/"
 
