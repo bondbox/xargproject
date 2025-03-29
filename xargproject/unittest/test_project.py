@@ -4,6 +4,7 @@ import unittest
 from unittest import mock
 
 from xargproject import project
+from xargproject.attribute import __project__
 
 
 class TestProject(unittest.TestCase):
@@ -33,7 +34,7 @@ class TestProject(unittest.TestCase):
     @mock.patch.object(project, "open")
     def test_create(self, mock_open: mock.Mock):
         with mock.mock_open(mock_open):
-            project.Project.create("unittest", "GPLv2")
+            project.Project.create(__project__, "GPLv2")
 
 
 if __name__ == "__main__":
