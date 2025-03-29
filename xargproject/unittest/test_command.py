@@ -1,7 +1,5 @@
 # coding:utf-8
 
-from argparse import Namespace
-import sys
 import unittest
 from unittest import mock
 
