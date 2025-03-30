@@ -52,7 +52,7 @@ class Project:
         return True
 
     def init_requirements(self):
-        self.write("requirements.txt", f'''{command_project} >= {command_version}''')  # noqa:E501
+        self.write("requirements.txt", f'''{command_project}>={command_version}''')  # noqa:E501
 
     def init_coveragerc(self):
         self.write(".coveragerc", f'''[run]
@@ -250,7 +250,7 @@ setup(
     project_urls={{"Source Code": __urlcode__,
                   "Bug Tracker": __urlbugs__,
                   "Documentation": __urldocs__}},
-    packages=find_packages(include=["{self.module}*"], exclude=["{self.module}.unittest"]),
+    packages=find_packages(include=["{self.module}*"], exclude=["{self.module}.unittest"]),  # noqa:E501
     install_requires=all_requirements())
 ''')  # noqa:E501
 
