@@ -218,6 +218,7 @@ from urllib.parse import urljoin
 
 from setuptools import find_packages
 from setuptools import setup
+from setuptools.command.install import install
 
 from {self.module}.attribute import __author__
 from {self.module}.attribute import __author_email__
@@ -240,6 +241,14 @@ def all_requirements():
     return requirements
 
 
+class CustomInstallCommand(install):
+    """Customized setuptools install command"""
+
+    def run(self):
+        install.run(self)  # Run the standard installation
+        # Execute your custom code after installation
+
+
 setup(
     name=__project__,
     version=__version__,
@@ -251,7 +260,11 @@ setup(
                   "Bug Tracker": __urlbugs__,
                   "Documentation": __urldocs__}},
     packages=find_packages(include=["{self.module}*"], exclude=["{self.module}.unittest"]),  # noqa:E501
-    install_requires=all_requirements())
+    install_requires=all_requirements(),
+    cmdclass={{
+        "install": CustomInstallCommand,
+    }}
+)
 ''')  # noqa:E501
 
     @classmethod
